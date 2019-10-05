@@ -1,19 +1,48 @@
-<br/>
-
-<input type="text" placeholder="Search Friends" [(ngModel)]="query" />
-<br/>
-<ng-container *ngFor="let user of friends | search: query; let i = index">
-  <div *ngIf="user.friend">
-    <a routerLink="/conversation/{{ user.uid }}">
-      {{ i }}. {{ user.nick }} - {{ user.email }}
-    </a>
+<div id="home-container" class="head-container">
+  <div class="home-head-container container-fluid">
+    <div class="row">
+      <div class="col-auto">
+        <div class="avatar-frame-online">
+          <img src="assets/img/generic_avatar.png"
+               alt="User avatar"
+               id="home-avatar-picture"
+               class="avatar-image img-fluid">
+        </div>
+      </div>
+      <div class="col">
+        <strong>Carlos</strong>
+        <div>
+          <span>Online</span>
+          <br/>
+          <span>< Escribe un mensaje Personal ></span>
+        </div>
+      </div>
+    </div>
   </div>
-</ng-container>
-<b>No Agregados</b>
-<ng-container *ngFor="let user of friends | search: query; let i = index">
-  <p *ngIf="!user.friend">
-    {{ i }}. {{ user.nick }} - {{ user.email }}
-  </p>
-</ng-container>
+  <div class="white-container-padded mt-2">
+    <div class="row">
+      <div class="col-11">
+        <input type="text" class="form-control" placeholder="Buscar Amigos" [(ngModel)]="query" />
+      </div>
+      <div class="col-1 d-flex justify-content-center align-self-center">
+        <div class="">
+          <img src="assets/img/logo_live_add.png" alt="add friend" class="icon">
+        </div>
+      </div>
+    </div>
+    <hr/>
+    <strong>Amigos ({{ friends.length }}/{{ friends.length }})</strong>
+    <div *ngFor="let user of friends | search: query; let i = index" class="d-block mb-1">
+      <span routerLink="/conversation/{{ user.uid }}">
+        <img id="user-status"
+             class="icon"
+             src="assets/img/logo_live_{{user.status}}.png"
+             alt="${{user.status}}">
+        <strong>{{user.nick}}</strong> - {{user.subnick || 'No Subnick' }}
+        <small>{{user.email}}</small>
+      </span>
+    </div>
+    <!-- Structural, modify html, start with * -->
 
-<!-- Structural, modify html, start with * -->
+  </div>
+</div>

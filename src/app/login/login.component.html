@@ -1,3 +1,32 @@
-<p>
-  login works!
-</p>
+<div class="login-container">
+  <div class="container">
+    <div class="row d-flex justify-content-center">
+      <div class="col-4 col-sm-4 col-lg-2">
+        <div class="avatar-frame-offline my-5">
+          <img src="assets/img/generic_avatar.png"
+               alt="User avatar"
+               class="avatar-image img-fluid">
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-md-center">
+      <div class="col-md-6">
+        <div class="text-center">
+        <h3 *ngIf="operation == 'login'">Iniciar Sesión</h3>
+        <h3 *ngIf="operation == 'register'">Registrate</h3>
+      </div>
+        <div class="borderer-container mt-5">
+          <input class="form-control mb-3" type="email" placeholder="Ingrese Email" />
+          <input class="form-control mb-3" type="password" placeholder="Ingrese Contraseña" />
+          <input *ngIf="operation == 'register'" class="form-control mb-3" type="text" placeholder="Ingrese Nick" />
+        </div>
+        <p *ngIf="operation == 'register'" >¿Ya tienes cuenta? Has <a (click)="operation = 'login'">Login</a></p>
+        <p *ngIf="operation == 'login'" >¿No tienes cuenta? <a (click)="operation = 'register'">Registrate</a></p>
+        <div class="text-center mt-5">
+          <a *ngIf="operation == 'login'" class="btn btn-primary">Iniciar Sesión</a>
+          <a *ngIf="operation == 'register'" class="btn btn-primary">Registrarme</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

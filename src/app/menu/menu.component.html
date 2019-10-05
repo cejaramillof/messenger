@@ -1,4 +1,14 @@
-<img id="main-logo" src="assets/img/logo_live.png" alt="Logo de Messenger">
-<a href="/home">Home</a> |
-<a routerLink="/login">Login</a> |
-<a routerLink="/profile">Profile</a>
+<div id="menu-container">
+  <div class="item branding" routerLink="/home">
+      <img id="main-logo" src="assets/img/logo_live.png" alt="Logo de Messenger" class="mr-2">
+      Messenger
+  </div>
+  <div class="item" routerLink="/login" >
+    <i class="fas fa-sign-in-alt"></i>
+    Login
+  </div>
+  <div class="item" routerLink="/profile">
+    <i class="fas fa-user-alt"></i>
+    Profile
+  </div>
+</div>
